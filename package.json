@@ -1,0 +1,19 @@
+{
+  "name": "website-csv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "functions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonXec/html-csv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DonXec/html-csv/issues"
+  },
+  "homepage": "https://github.com/DonXec/html-csv#readme"
+}
