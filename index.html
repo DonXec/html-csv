@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Meine Webseite</title>
+</head>
+
+
+<body>
+    <center>
+    <h1>Meine Webseite</h1>
+    <form id="myForm">
+        <label for="vorname">Vorname:</label>
+        <input type="text" id="vorname" name="vorname"><br> <label for="nachname">Nachname:</label>
+        <input type="text" id="nachname" name="nachname"><br> <label for="alter">Alter:</label>
+        <input type="text" id="alter" name="alter"><br>
+        <input type="submit" value="Absenden">
+    </form>
+    </center>
+    
+    <script>
+
+        const form = document.querySelector('#myForm');
+        form.addEventListener('submit', handleSubmit);
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const vorname = document.querySelector('#vorname').value;
+            const nachname = document.querySelector('#nachname').value;
+            const alter = document.querySelector('#alter').value;
+            const data = { vorname, nachname, alter };
+            const csv = convertToCSV(data); saveToCSV(csv);
+        }
+
+        function convertToCSV(data) {
+            const rows = [Object.keys(data), Object.values(data)];
+            return rows.map(row => row.join(',')).join('\n');
+        }
+
+        function saveToCSV(csv) {
+            const filename = 'data.csv';
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = filename; a.click();
+        }
+
+    </script>
+
+</body>
+
+</html>
